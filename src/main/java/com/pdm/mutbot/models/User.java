@@ -9,6 +9,8 @@ import javax.validation.constraints.Size;
 
 @Data
 @Builder
+@Getter
+@Setter
 @Entity
 @Where(clause = "active = true")
 @Table(name = "tb_users")
@@ -33,4 +35,5 @@ public class User extends DefaultEntity {
 
     @Size(max = 255)
     private String password;
+   
 }
