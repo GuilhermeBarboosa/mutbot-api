@@ -27,7 +27,9 @@ public class QuestionQueriesImpl implements QuestionQueries{
 
     private String getSqlParams(ListQuestionParams params) {
         String sqlParams = "";
-
+        if(params.getTagId() != null) {
+            sqlParams += " tag.id = :tagId and ";
+        }
         sqlParams += " question.active = true ";
 
         if (params.getOrderBy() != null && params.getOrderType() != null) {
@@ -40,6 +42,11 @@ public class QuestionQueriesImpl implements QuestionQueries{
     private Query getParameters(String sql, ListQuestionParams params) {
 
         Query query = manager.createQuery(sql, Question.class);
+
+
+        if(params.getTagId() != null) {
+            query.setParameter("tagId", params.getTagId());
+        }
 
         if (params.getPageable().equals(true) && params.getPageSize() > 0 && params.getPageIndex() > -1) {
             query.setFirstResult(params.getPageIndex() * params.getPageSize());
