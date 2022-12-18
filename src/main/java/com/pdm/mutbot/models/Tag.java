@@ -5,16 +5,15 @@ import lombok.*;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
-import javax.validation.constraints.Size;
 
 @Data
 @Builder
 @Entity
 @Where(clause = "active = true")
-@Table(name = "tb_questions")
+@Table(name = "tb_tags")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question extends DefaultEntity {
+public class Tag extends DefaultEntity {
 
     @EqualsAndHashCode.Include
     @Id
@@ -23,11 +22,5 @@ public class Question extends DefaultEntity {
     private Long id;
 
     @Column()
-    private String question;
-
-    @ManyToOne()
-    private User author;
-
-    @ManyToOne()
-    private Tag tag;
+    private String name;
 }

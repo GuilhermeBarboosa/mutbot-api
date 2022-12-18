@@ -13,4 +13,8 @@ public class QuestionResponseDTO extends DefaultEntityDTO {
     private Long authorId;
 
     private String authorName;
+
+    private Long tagId;
+
+    private String tagName;
 }

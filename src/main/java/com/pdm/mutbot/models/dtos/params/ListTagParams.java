@@ -4,7 +4,5 @@ import com.pdm.mutbot.models.abstracts.DefaultListParams;
 import lombok.Data;
 
 @Data
-public class ListQuestionParams extends DefaultListParams {
-
-    private Long tagId;
+public class ListTagParams  extends DefaultListParams {
 }

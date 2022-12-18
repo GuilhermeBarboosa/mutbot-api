@@ -15,5 +15,7 @@ public class QuestionResquestDTO {
     @Size(max = 2500, message = "Campo questão só poder conter no máximo 2500 caracteres.")
     private String question;
 
+    private Long tagId;
+
     private Long authorId;
 }

@@ -5,6 +5,8 @@ CREATE TABLE public.tb_questions (
 	created_date timestamp NOT NULL,
 	last_updated_date timestamp NOT NULL,
 	author_id int4 NOT NULL,
+	tag_id int8 NOT NULL,
 	CONSTRAINT tb_questions_pk PRIMARY KEY (id),
-	CONSTRAINT tb_questions_fk FOREIGN KEY (author_id) REFERENCES public.tb_users(id)
+	CONSTRAINT tb_questions_fk FOREIGN KEY (author_id) REFERENCES public.tb_users(id),
+	CONSTRAINT tb_questions_fk_tags FOREIGN KEY (tag_id) REFERENCES public.tb_tags(id)
 );
